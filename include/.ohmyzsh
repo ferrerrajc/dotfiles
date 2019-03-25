@@ -1,0 +1,9 @@
+export ZSH="${HOME}/.oh-my-zsh"
+
+export DEFAULT_USER=josh
+ZSH_THEME="muse"
+plugins=(git npm pip)
+
+if [ -f $ZSH/oh-my-zsh.sh ]; then
+  source $ZSH/oh-my-zsh.sh
+fi
