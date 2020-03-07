@@ -23,7 +23,7 @@ node-packages: npm
 	npm install -g $(shell cat install/npmfile)
 
 rust:
-	is-executable rustup || curl https://sh.rustup.rs -sSf | sh
+	is-executable rustup || curl curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 
 stack:
 	is-executable stack || curl -sSL https://get.haskellstack.org/ | sh

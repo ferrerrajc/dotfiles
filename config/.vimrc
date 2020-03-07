@@ -12,19 +12,19 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 
+" tree explorer
+Plugin 'scrooloose/nerdtree'
+
 " git wrapper
 Plugin 'tpope/vim-fugitive'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 
-" tree explorer
-Plugin 'scrooloose/nerdtree'
-
 " bottom bar
 Plugin 'lokaltog/vim-powerline'
 
 " file searching
-Plugin 'kien/ctrlp.vim'
+Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'mileszs/ack.vim'
 
 Plugin 'godlygeek/tabular'
@@ -32,13 +32,8 @@ Plugin 'ervandew/supertab'
 
 Plugin 'vim-syntastic/syntastic'
 
-Plugin 'pangloss/vim-javascript'
-Plugin 'leafgarland/typescript-vim'
-
-Plugin 'elzr/vim-json'
-
-" shakespear highlighting
-Plugin 'pbrisbin/vim-syntax-shakespeare'
+Plugin 'othree/yajs.vim'
+Plugin 'herringtondarkholme/yats.vim'
 
 " solarized colorscheme
 Plugin 'altercation/vim-colors-solarized'
@@ -73,11 +68,11 @@ set laststatus=2        " status bar
 set showtabline=2       " always show tabs
 set background=dark
 
-try
-  colorscheme solarized
-catch /.*/
-  colorscheme peachpuff
-endtry
+" try
+"   colorscheme solarized
+" catch /.*/
+"   colorscheme peachpuff
+" endtry
 
 " }}}
 
@@ -128,6 +123,7 @@ let g:ctrlp_custom_ignore = {
   \ 'file': '\v\.(exe|so|dll)$',
   \ 'link': 'some_bad_symbolic_links',
   \ }
+let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
 " }}}
 
 " ack {{{

@@ -27,3 +27,5 @@ done
 
 unset READLINK CURRENT_SCRIPT SCRIPT_PATH DOTFILE
 export DOTFILES_DIR
+
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
