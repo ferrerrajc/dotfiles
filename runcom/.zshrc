@@ -1,6 +1,6 @@
 READLINK=$(command -v greadlink 2>/dev/null || command -v readlink)
 # https://stackoverflow.com/questions/9901210/bash-source0-equivalent-in-zsh
-CURRENT_SCRIPT=${(%):-%x}
+CURRENT_SCRIPT=${(%):-%N}
 
 if [[ -n $CURRENT_SCRIPT && -x "$READLINK" ]]; then
   SCRIPT_PATH=$($READLINK -f "$CURRENT_SCRIPT")

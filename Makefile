@@ -3,14 +3,17 @@ PATH := $(DOTFILES_DIR)/bin:$(PATH)
 NVM_DIR := $(HOME)/.nvm
 VUNDLE := $(HOME)/.vim/bundle/Vundle.vim
 
-brew:
-	is-executable brew || curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install | ruby
+apt-update:
+	sudo apt update
 
-brew-packages: brew
-	brew bundle --file=$(DOTFILES_DIR)/install/Brewfile
+apt: apt-update
+	apt.sh
 
-cask-apps: brew
-	brew bundle --file=$(DOTFILES_DIR)/install/Caskfile
+oh-my-zsh: apt
+	curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh | sh
+
+git-config: apt
+	git-config.sh
 
 code-extensions:
 	for EXT in $$(cat install/Codefile); do code --install-extension $$EXT; done
@@ -22,10 +25,10 @@ npm:
 node-packages: npm
 	npm install -g $(shell cat install/npmfile)
 
-rust:
-	is-executable rustup || curl curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+rust: apt
+	is-executable rustup || curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 
-stack:
+stack: apt
 	is-executable stack || curl -sSL https://get.haskellstack.org/ | sh
 
 vundle:

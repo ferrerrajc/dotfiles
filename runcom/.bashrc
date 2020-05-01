@@ -1,5 +1,5 @@
 READLINK=$(command -v greadlink 2>/dev/null || command -v readlink)
-CURRENT_SCRIPT=${BASH_SOURCE[1]}
+CURRENT_SCRIPT=${BASH_SOURCE[0]}
 
 # Resolve DOTFILES_DIR
 
